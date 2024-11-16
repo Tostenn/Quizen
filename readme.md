@@ -1,133 +1,115 @@
-# Quizen 🎮
 
-**Quizen** est une bibliothèque Python qui permet de créer et de jouer à des quiz interactifs en ligne de commande. Grâce à un simple dictionnaire structuré, vous pouvez créer des quiz facilement. Ce paquet est conçu pour faciliter la mise en place de jeux de quiz amusants pour tester vos connaissances !
 
-Vous pouvez installer cette bibliothèque via `pip` et l'utiliser pour démarrer un quiz en quelques lignes de code.
+# Quizen  
 
-![Version](https://img.shields.io/pypi/v/quizen?color=blue) 
-![Python Version](https://img.shields.io/pypi/pyversions/quizen?color=green)
-![License](https://img.shields.io/badge/license-MIT-green)
+🎉 **Quizen** is an interactive console application designed to simplify the creation of **Quiz Games**. With a well-structured dictionary, you can set up a quiz in just **3 lines of code**!  
 
----
+🚀 Aimed at both beginners and advanced developers, Quizen offers an intuitive way to integrate educational and entertaining quizzes into your Python projects.  
 
-## Installation 🛠️
-
-### Installation via `pip` (depuis PyPI) 📦
-
-Vous pouvez installer `quizen` en utilisant `pip` :
-
-```bash
-pip install quizen
-```
-
-### Installation en mode développement 🧑‍💻
-
-Si vous souhaitez contribuer ou tester le code localement, vous pouvez installer `quizen` en mode développement :
-
-```bash
-git clone https://github.com/username/quizen.git
-cd quizen
-pip install -e .
-```
+![PyPI](https://img.shields.io/pypi/v/quizen)
+![Python](https://img.shields.io/pypi/pyversions/quizen)
+![License](https://img.shields.io/pypi/l/quizen)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/quizen)
 
 ---
 
-## 🏃‍♂️ **Créer un quiz en 3 lignes**
-Grâce au futur package `quiz` (disponible bientôt sur PyPI), voici comment créer et exécuter un quiz en seulement 3 lignes :
+## ⚙️ **Features**  
 
-```python
-from quizen.quiz import Quiz
+- 🧩 **Customizable**: Easily create questions and answers using dictionaries.  
+- 🎯 **Engaging Gameplay**: Automatic handling of scores, lives, and consecutive correct answers.  
+- 💾 **Data Persistence**: Player statistics are saved to a file for review.  
+- 🔀 **Shuffling**: Randomize questions and answers to keep things fresh.  
 
-questions = {"Quelle est la capitale de la France ?": ["Paris", "Londres", "Berlin", "Madrid"]}
+---
 
-Quiz(questions, player="Joueur").play()
-```
+## 📦 **Installation**  
 
+Install the latest version of **Quizen** from PyPI:  
+```bash  
+pip install quizen  
+```  
 
-## Utilisation 🚀
+---
 
-Une fois que vous avez installé `quizen`, vous pouvez commencer à l'utiliser pour créer et jouer à des quiz interactifs.
+## 🛠 **How to Use**  
 
-1. **Créer un fichier `questions.json`** avec vos questions et réponses. Exemple de fichier `questions.json` :
+Using **Quizen** is as simple as this:  
 
-```json
+### Step 1: Create your questions  
+
+Prepare your questions in a JSON file or Python dictionary. For example:  
+```json  
 {
-  "Quelle est la capitale de la France ?": ["Paris", "Lyon", "Marseille", "Toulouse"],
-  "Qui a écrit 'Les Misérables' ?": ["Victor Hugo", "Émile Zola", "Marcel Proust", "Molière"]
+    "What is the capital of France?": ["Paris", "London", "Berlin", "Madrid"],
+    "Who developed Python?": ["Guido van Rossum", "Dennis Ritchie", "James Gosling", "Bjarne Stroustrup"]
 }
-```
+```  
 
-2. **Exécuter le quiz** dans votre script Python :
-```python
-from quizen.quiz import Quiz
-from json import load
+### Step 2: Launch your quiz  
 
-# Charger les questions depuis un fichier JSON
-with open('data/questions.json', 'r', encoding='utf-8') as file:
-    questions = load(file)
+Here's a complete example to start a quiz:  
+```python  
+from quizen import Quiz  
+from json import load  
 
-# Lancer le quiz
-quiz = Quiz(questions, player="VotreNom")
-quiz.play()
-```
+path = "data/questions.json"  
 
-3. **Lancer le quiz depuis la ligne de commande** :
+with open(path, "r", encoding="utf-8") as file:  
+    questions = load(file)  
 
-Vous pouvez également démarrer un quiz directement depuis votre terminal en utilisant la commande suivante (après avoir installé la bibliothèque) :
-
-```bash
-quizen
-```
-
-Cela exécutera le quiz en utilisant les questions définies dans le fichier `data/questions.json`.
+Quiz(questions, player="John").play()  
+```  
 
 ---
 
-## Fonctionnalités ✨
+## 📊 **Statistics**  
 
-- **Création de quiz** : Utilisez un simple dictionnaire structuré pour créer vos questions et réponses.
-- **Interface CLI** : Une interface en ligne de commande pour jouer au quiz.
-- **Sauvegarde des résultats** : Les statistiques du joueur sont sauvegardées dans un fichier JSON.
-- **Vie et score** : Gérez les vies et le score des joueurs au fur et à mesure du quiz.
-- **Bonus de vie** : Un bonus de vie est accordé toutes les 5 réponses correctes consécutives.
-
----
-
-## Exemple de code 📝
-
-Voici un exemple complet pour démarrer un quiz avec `quizen` :
-
-```python
-from quizen.quiz import Quiz
-from json import load
-
-path = 'data/questions.json'
-
-# Charger les questions depuis un fichier JSON
-with open(path, 'r', encoding='utf-8') as file:
-    questions = load(file)
-
-# Lancer le quiz
-quiz = Quiz(questions, player="CR7")
-quiz.play()
-```
+At the end of each game, Quizen displays and saves player statistics, including:  
+- **Questions answered**  
+- **Correct answers**  
+- **Wrong answers**  
+- **Score**  
+- **Longest streak of correct answers**  
+- **Remaining lives**  
 
 ---
 
-## Contribuer 🤝
+## 🛡 **Dependencies**  
 
-Si vous souhaitez contribuer à ce projet, vous pouvez faire un fork du repository, apporter vos modifications et soumettre une pull request. Pour installer le projet en mode développement, suivez les instructions ci-dessus.
+Quizen depends on the following libraries:  
+- [**rich**](https://github.com/Textualize/rich): For beautiful console output.  
+
+Install all dependencies automatically with:  
+```bash  
+pip install quizen  
+```  
 
 ---
 
-## License 📝
+## 🏆 **Contributing**  
 
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+We welcome contributions! Here's how you can help:  
+1. **Report bugs**: Found a bug? Let us know by opening an issue.  
+2. **Suggest improvements**: Have ideas for new features? Share them on GitHub.  
+3. **Submit pull requests**: Fix a bug or implement a feature and submit your PR.  
+
+Start by cloning the repository:  
+```bash  
+git clone https://github.com/Tostenn/Quizen.git  
+cd quizen  
+```  
 
 ---
 
-### Notes supplémentaires 📝
+## 📣 **Get in Touch**  
 
-- Vous devez avoir Python 3.7+ installé pour utiliser cette bibliothèque.
-- Assurez-vous que le fichier `questions.json` se trouve à la racine du répertoire courant
+Your feedback is invaluable! If you encounter issues, have suggestions, or want to contribute, feel free to:  
+- **Open an issue** on GitHub.  
+- **Contact me directly** through my [GitHub profile](https://github.com/Tostenn).  
 
+Let’s make **Quizen** the ultimate tool for interactive quizzes!  
+
+
+---
+
+Enjoy using **Quizen** and happy coding! 😊
