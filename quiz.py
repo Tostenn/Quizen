@@ -112,7 +112,7 @@ class Quiz:
         """Accorder un bonus de vie toutes les 5 réponses correctes consécutives."""
         if self.count_success % 5 == 0 and self.life < self.init_life:
             self.increment_life()
-            self.output.good_reponse_animation(text="Vous gagnez une vie supplémentaire ! ❤️")
+            self.output.good_reponse_animation(text="Vous gagnez une vie supplémentaire (+1) !")
 
     def end_game(self):
         """Afficher les statistiques et sauvegarder les données."""

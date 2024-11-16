@@ -43,7 +43,7 @@ class Output:
     def prompt(self, start: int = 1, end: int = 4) -> int:
         """Demande la réponse du joueur."""
         while True:
-            value = self.console.input(f"Quelle est la [bold green]bonne réponse[/bold green] (ou entrez 'end' pour quitter) : ")
+            value = self.console.input("Quelle est la [bold green]bonne réponse[/bold green] ('.' pour quitter) : ")
 
             if value.lower() in ["end", "."]:
                 return 0
