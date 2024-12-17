@@ -9,6 +9,7 @@
 ![PyPI](https://img.shields.io/pypi/v/quizen)
 ![Python](https://img.shields.io/pypi/pyversions/quizen)
 ![License](https://img.shields.io/pypi/l/quizen)
+[![PyPI Downloads](https://static.pepy.tech/badge/quizen)](https://pepy.tech/projects/quizen)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/quizen)
 
 ---
